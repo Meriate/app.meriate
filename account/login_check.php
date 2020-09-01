@@ -1,8 +1,8 @@
 <?php
 // Include config file
-require_once "config/config.php";
+require_once "../config/config.php";
 // Initialize the session
-session_start();
+
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
@@ -12,9 +12,9 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
         $_SESSION = array();
         session_destroy();
     } elseif ($_SESSION["licensie"] == 1) {
-        header('location:selectsurvey.php');
+        header('location:../selectsurvey.php');
     } elseif ($_SESSION["licensie"] == 2) {
-        header('location:manage.php');
+        header('location:../manage.php');
     } else {
         header('location:logout.php');
     }
@@ -79,9 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             // Redirect user to welcome page
                             if ($_SESSION["licensie"] == 1) {
-                                header('location:selectenquete.php');
+                                header('location:../selectsurvey.php');
                             } elseif ($_SESSION["licensie"] == 2) {
-                                header('location:manage.php');
+                                header('location:../manage.php');
                             } elseif ($_SESSION["licensie"] == 99) {
                                 header('location:checkregister.php');
                             } else {

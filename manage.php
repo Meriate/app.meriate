@@ -1,3 +1,18 @@
+<?php
+session_start();
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
+    header('header:account/login.php');
+}elseif ( $_SESSION["licensie"] != 2) {
+    echo "<script> window.location.replace('account/permissiondenied.php') </script>";
+    exit();
+  }
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +33,7 @@
 
 
 <?php include('navigation.php');?>
-  
+
 
 
 
@@ -26,7 +41,7 @@
 
       <main>
         <div class="container-fluid">
-          <h1 class="mt-4">Dashboard</h1>
+          <h1 class="mt-4">Dashboard <?php echo $_SESSION["licensie"];?></h1>
           <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard</li>
           </ol>
