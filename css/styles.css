@@ -18,11 +18,15 @@
 
 body {
   font-family: Inter, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   color: #4A545A;
 }
 
-
+a{color:#1292EE;}
+a:hover {
+    color: #127ac7;
+    text-decoration: none;
+}
 
 
 
@@ -30,9 +34,23 @@ body {
 2. GENERAL ELEMENTS
 =============================================================================*/
 
-.bg-primary{
-  background-color: #F1F2F5 !important;
+.bg-dark{background-color: #212852!important;}
+
+/* Buttons */
+.btn-primary{
+  background-color: #1292EE;
+  border-color: #1292EE;
 }
+.btn-primary:hover {
+  background-color: #127ac7;
+  border-color: #127ac7;
+}
+
+/* Notifications */
+.bg-primary{background-color: #1292EE!important;}
+.bg-warning{background-color: #FFC34B!important;}
+.bg-success{background-color: #369B70!important;}
+.bg-danger{background-color: #F14651!important;}
 
 
 
@@ -42,6 +60,12 @@ body {
 3. NAVBAR
 =============================================================================*/
 
+.breadcrumb{
+  background-color: #F1F2F5;
+}
+.sb-sidenav-light{
+  background-color: #F1F2F5;
+}
 .sb-sidenav-light .sb-sidenav-menu .nav-link.active, .sb-sidenav-light .sb-sidenav-menu .nav-link.active .sb-nav-link-icon{
   color: #0057A9;
 }

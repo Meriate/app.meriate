@@ -12,8 +12,8 @@ include('login_check.php');
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Page Title - SB Admin</title>
-        <?php include "assets/lib/libraries_head.php";?>
-        <link href="css/styles.css" rel="stylesheet" />
+        <?php include "../assets/lib/libraries_head.php";?>
+        <link href="/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">
