@@ -74,15 +74,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
      }
 }
+
+
 ?>
 
 <html lang="en">
-    <head>
-        <title>Create survey</title>
-    </head>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Dashboard - Create Survey</title>
+  <link href="css/styles.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+</head>
     <body>
+        <?php include('navigation.php'); ?>
         <h1>New survey</h1>
-
+        <br><br>
         <form action="" method="post">
             <div class="form-group">
                 <label>Survey naam</label>
@@ -96,4 +107,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </form>
     </body>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+
+        <script src="js/scripts.js"></script>
+
+
 </html>

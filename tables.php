@@ -533,8 +533,8 @@ require_once('config/config.php')
                                     </table>-->
                                 </div>
                                 <br>
-                                <div class="table-responsive">
-                                  <?php include('tables/surveytable.php');?>
+                                <div class="table-responsive" style=" overflow: visible;">
+                                  <?php include('tables/get_surveytable.php');?>
                                 </div>
                             </div>
                         </div>
