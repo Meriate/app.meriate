@@ -6,7 +6,7 @@ define('DB_SERVER', '185.104.29.48');
 define('DB_USERNAME', 'meriate');
 define('DB_PASSWORD', 'vsMvjhbg');
 define('DB_NAME', 'meriate_DATABASE');
- 
+
 /* Attempt to connect to MySQL database */
 $con = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
