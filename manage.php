@@ -47,26 +47,27 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
 
           <div class="row">
 
-            <div class="col-xl-6">
-              <div class="card mb-4">
-                <br> <!-- Content goes here -->
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-              </div>
+            <div class="col-md-3">
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+              <p>Paragraph</p>
+              <a href="#">Link</a>
             </div>
 
-            <div class="col-xl-6">
-              <div class="card mb-4">
-                <br> <!-- Content goes here -->
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-              </div>
+            <div class="col-md-3">
+              <button type="button" class="btn btn-primary">Primary</button>
+              <br>
+              <br>
+              <button type="button" class="btn btn-secondary">Secondary</button>
+              <br>
+              <br>
+              <button type="button" class="btn btn-outline-primary">Outlined</button>
+              <br>
+              <br>
             </div>
 
           </div>

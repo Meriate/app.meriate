@@ -36,7 +36,7 @@ $result_add = mysqli_query($con, $sql);
         var Surveyid = $(this).attr('id').split("_")[1];
         $("#dropdown_survey").text(Survey);
 
-        
+
         $.ajax({ /* THEN THE AJAX CALL */
         type: "POST", /* TYPE OF METHOD TO USE TO PASS THE DATA */
         url: "tables/surveytable.php", /* PAGE WHERE WE WILL PASS THE DATA */

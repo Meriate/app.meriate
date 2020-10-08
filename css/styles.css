@@ -41,9 +41,30 @@ a:hover {
   background-color: #1292EE;
   border-color: #1292EE;
 }
-.btn-primary:hover {
-  background-color: #127ac7;
-  border-color: #127ac7;
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+  background-color: #127ac7!important;
+  border-color: #127ac7!important;
+  box-shadow: none!important;
+}
+.btn-secondary{
+  background-color: #0056A9;
+  border-color: #0056A9;
+}
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+  background-color: #024485!important;
+  border-color: #024485!important;
+  box-shadow: none!important;
+}
+.btn-outline-primary{
+  background: transparent;
+  color: #0056A9;
+  border-color: #B5BAC0;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
+  background: transparent!important;
+  color: #0056A9!important;
+  border-color: #0056A9!important;
+  box-shadow: none!important;
 }
 
 /* Notifications */
