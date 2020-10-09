@@ -80,11 +80,13 @@ a:hover {
   box-shadow: none!important;
 }
 
-.dropdown-item:active{
-  background-color: #1292EE;
+.dropdown-item{
+  color: #17212A;
   font-weight: 300;
   font-size: 15px;
-  color: #17212A;
+}
+.dropdown-item:active{
+  background-color: #1292EE;
 }
 
 
@@ -133,6 +135,9 @@ select:-webkit-autofill:focus {
 3. NAVBAR
 =============================================================================*/
 
+.navbar-brand img{
+  height:24px;
+}
 .breadcrumb{
   background-color: #F1F2F5;
 }
