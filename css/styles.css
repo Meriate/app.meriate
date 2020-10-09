@@ -22,6 +22,17 @@ body {
   color: #4A545A;
 }
 
+h1, h2, h3, h4, h5, h6{
+  color: #17212A;
+}
+
+body, p{
+  color: #556575;
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: 300;
+}
+
 a{color:#1292EE;}
 a:hover {
     color: #127ac7;
@@ -41,31 +52,72 @@ a:hover {
   background-color: #1292EE;
   border-color: #1292EE;
 }
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .show > .btn-primary.dropdown-toggle{
   background-color: #127ac7!important;
   border-color: #127ac7!important;
   box-shadow: none!important;
 }
+
 .btn-secondary{
   background-color: #0056A9;
   border-color: #0056A9;
 }
-.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active, .show > .btn-secondary.dropdown-toggle {
   background-color: #024485!important;
   border-color: #024485!important;
   box-shadow: none!important;
 }
+
 .btn-outline-primary{
   background: transparent;
   color: #0056A9;
-  border-color: #B5BAC0;
+  border-color: #D2D5D8;
 }
-.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .show > .btn-outline-primary.dropdown-toggle {
   background: transparent!important;
   color: #0056A9!important;
   border-color: #0056A9!important;
   box-shadow: none!important;
 }
+
+.dropdown-item:active{
+  background-color: #1292EE;
+  font-weight: 300;
+  font-size: 15px;
+  color: #17212A;
+}
+
+
+
+/* Inputs */
+.form-control{
+  border: 1px solid #D2D5D8;
+  font-size: 15px;
+  color: #17212A;
+  font-weight: 300;
+  height: calc(1.5em + 0.75rem + 3px);
+}
+.form-control:focus{
+  box-shadow: none;
+  border-color: #1292EE;
+}
+.form-control::placeholder{
+  color: #BABEC0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #17212A;
+}
+
+
 
 /* Notifications */
 .bg-primary{background-color: #1292EE!important;}

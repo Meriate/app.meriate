@@ -12,7 +12,7 @@ require_once('config/config.php')
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Dashboard - SB Admin</title>
+  <title>Elements - Meriate</title>
   <?php include "assets/lib/libraries_head.php";?>
   <link href="css/styles.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -37,6 +37,152 @@ require_once('config/config.php')
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                             <li class="breadcrumb-item active">Elements</li>
                         </ol>
+
+                        <div class="row">
+
+                          <div class="col-md-2">
+                            <h1>Heading 1</h1>
+                            <h2>Heading 2</h2>
+                            <h3>Heading 3</h3>
+                            <h4>Heading 4</h4>
+                            <h5>Heading 5</h5>
+                            <h6>Heading 6</h6>
+                            <p>Paragraph</p>
+                            <a href="#">Link</a>
+                          </div>
+
+                          <div class="col-md-2">
+                            <button type="button" class="btn btn-primary">Primary</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-secondary">Secondary</button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn btn-outline-primary">Outlined</button>
+                            <br>
+                            <br>
+                          </div>
+
+                          <div class="col-md-2">
+                            <div class="dropdown">
+                              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown 1
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                            </div>
+                            <br>
+                            <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown 2
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                            </div>
+                            <br>
+                            <div class="dropdown">
+                              <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown 3
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6">
+                            <form>
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="inputEmail4">Email</label>
+                                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <label for="inputPassword4">Password</label>
+                                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <label for="inputAddress">Address</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                              </div>
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <label for="inputCity">City</label>
+                                  <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-md-4">
+                                  <label for="inputState">State</label>
+                                  <select id="inputState" class="form-control">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                  </select>
+                                </div>
+                                <div class="form-group col-md-2">
+                                  <label for="inputZip">Zip</label>
+                                  <input type="text" class="form-control" id="inputZip">
+                                </div>
+                              </div>
+
+
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                      Default radio
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                    <label class="form-check-label" for="exampleRadios2">
+                                      Second default radio
+                                    </label>
+                                  </div>
+                                  <div class="form-check disabled">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                                    <label class="form-check-label" for="exampleRadios3">
+                                      Disabled radio
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                      Default checkbox
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                                    <label class="form-check-label" for="defaultCheck2">
+                                      Disabled checkbox
+                                    </label>
+                                  </div>
+                                </div>
+
+                              </div>
+
+
+
+
+                              <button type="submit" class="btn btn-primary">Sign in</button>
+                            </form>
+
+                            <br>
+                            <br>
+                          </div>
+                        </div>
+
+
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">

@@ -19,7 +19,7 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Dashboard - SB Admin</title>
+  <title>Dashboard - Meriate</title>
   <?php include "assets/lib/libraries_head.php";?>
   <link href="css/styles.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -47,32 +47,25 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
 
           <div class="row">
 
-            <div class="col-md-3">
-              <h1>Heading 1</h1>
-              <h2>Heading 2</h2>
-              <h3>Heading 3</h3>
-              <h4>Heading 4</h4>
-              <h5>Heading 5</h5>
-              <h6>Heading 6</h6>
-              <p>Paragraph</p>
-              <a href="#">Link</a>
+            <div class="col-md-6">
+              <div class="card">
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
             </div>
 
-            <div class="col-md-3">
-              <button type="button" class="btn btn-primary">Primary</button>
-              <br>
-              <br>
-              <button type="button" class="btn btn-secondary">Secondary</button>
-              <br>
-              <br>
-              <button type="button" class="btn btn-outline-primary">Outlined</button>
-              <br>
-              <br>
+            <div class="col-md-6">
+              <div class="card">
+                <br>
+                <br>
+                <br>
+                <br>
+              </div>
             </div>
 
           </div>
-
-
         </div>
       </main>
 
