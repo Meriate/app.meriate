@@ -19,7 +19,7 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Dashboard - SB Admin</title>
+  <title>Dashboard - Meriate</title>
   <?php include "assets/lib/libraries_head.php";?>
   <link href="css/styles.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -47,10 +47,8 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
 
           <div class="row">
 
-            <div class="col-xl-6">
-              <div class="card mb-4">
-                <br> <!-- Content goes here -->
-                <br>
+            <div class="col-md-6">
+              <div class="card">
                 <br>
                 <br>
                 <br>
@@ -58,10 +56,8 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
               </div>
             </div>
 
-            <div class="col-xl-6">
-              <div class="card mb-4">
-                <br> <!-- Content goes here -->
-                <br>
+            <div class="col-md-6">
+              <div class="card">
                 <br>
                 <br>
                 <br>
@@ -70,8 +66,6 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
             </div>
 
           </div>
-
-
         </div>
       </main>
 
