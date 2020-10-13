@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +71,9 @@
                                     <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="card mb-4">
+                            <?php include("chart_examples/barchart.php") ?>
                         </div>
                     </div>
                 </main>
