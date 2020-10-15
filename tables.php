@@ -13,7 +13,7 @@ require_once('config/config.php')
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Dashboard - SB Admin</title>
+  <title>Tables - Meriate</title>
   <?php include "assets/lib/libraries_head.php";?>
   <link href="css/styles.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -534,7 +534,7 @@ require_once('config/config.php')
                                     </table>-->
                                 </div>
                                 <br>
-                                <div class="table-responsive" style=" overflow: visible;">
+                                <div class="table-responsive" style="overflow: visible;">
                                   <?php include('tables/get_surveytable.php');?>
                                 </div>
                             </div>
@@ -544,7 +544,7 @@ require_once('config/config.php')
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; Meriate</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

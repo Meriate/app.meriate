@@ -45,8 +45,6 @@ a:hover {
 2. GENERAL ELEMENTS
 =============================================================================*/
 
-.bg-dark{background-color: #212852!important;}
-
 /* Buttons */
 .btn-primary{
   background-color: #1292EE;
@@ -78,6 +76,11 @@ a:hover {
   color: #0056A9!important;
   border-color: #0056A9!important;
   box-shadow: none!important;
+}
+
+.btn-lg{
+  font-size: 1rem;
+  padding: 0.7rem 1.4rem;
 }
 
 .dropdown-item{
@@ -121,14 +124,33 @@ select:-webkit-autofill:focus {
 
 
 
-/* Notifications */
+/* Error messages */
+.help-block{
+  color: #F14651;
+}
+
+
+
+/* Background colors */
 .bg-primary{background-color: #1292EE!important;}
+.bg-secondary{background-color: #0056A9!important;}
+.bg-dark{background-color: #212852!important;}
+.bg-light{background-color: #F1F2F5 !important;}
 .bg-warning{background-color: #FFC34B!important;}
 .bg-success{background-color: #369B70!important;}
 .bg-danger{background-color: #F14651!important;}
 
 
 
+/* Card styles */
+.card-header{
+  background-color: transparent;
+  border-bottom: 1px solid #D2D5D8;
+}
+.card-footer{
+  background-color: transparent;
+  border-top: 1px solid #D2D5D8;
+}
 
 
 /*=============================================================================

@@ -13,27 +13,25 @@ include('login_check.php');
         <meta name="author" content="" />
         <title>Page Title - SB Admin</title>
         <?php include "../assets/lib/libraries_head.php";?>
-        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+    <body class="bg-light">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                <div class="card shadow-md border-0 rounded-lg mt-5">
                                     <div class="card-body">
+                                      <h3 class="text-center my-4">Login</h3>
                                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
                                                 <input class="form-control py-4" id="inputEmailAddress" name="inputEmailAddress" type="email" placeholder="Enter email address" />
                                                 <span class="help-block"><?php echo $email_err; ?>
                                             </div>
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputPassword">Password</label>
                                                 <input class="form-control py-4" id="inputPassword" name="inputPassword" type="password" placeholder="Enter password" />
                                                 <span class="help-block"><?php echo $password_err; ?>
                                             </div>
@@ -44,8 +42,8 @@ include('login_check.php');
                                                 </div>
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
-                                                <input type="submit" class="btn btn-primary" value="login">
+                                                <a class="small" href="password.php">Forgot Password?</a>
+                                                <input type="submit" class="btn btn-lg btn-primary" value="login">
                                             </div>
                                         </form>
                                     </div>
@@ -62,7 +60,7 @@ include('login_check.php');
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; Meriate</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

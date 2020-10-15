@@ -13,9 +13,6 @@ $show_columns = array('attributes', 'created_at');
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     /* Style the input field */
     #surveyDropdownInput {
@@ -28,7 +25,7 @@ $show_columns = array('attributes', 'created_at');
   </style>
   <script type="text/javascript">
     $(document).ready(function() {
-      
+
       var Survey = $("li .selectsurvey").first().text();
       var Surveyid = $("li .selectsurvey").first().attr('id').split("_")[1];
       $("#dropdown_survey").text(Survey);
