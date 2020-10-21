@@ -28,8 +28,8 @@ include('login_check.php');
                                       <h3 class="text-center my-4">Login</h3>
                                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                             <div class="form-group">
-                                                <input class="form-control py-4" id="inputEmailAddress" name="inputEmailAddress" type="email" placeholder="Enter email address" />
-                                                <span class="help-block"><?php echo $email_err; ?>
+                                                <input class="form-control py-4" id="inputUserkey" name="inputUserkey" type="text" placeholder="Enter email address or username" />
+                                                <span class="help-block"><?php echo $userkey_err; ?>
                                             </div>
                                             <div class="form-group">
                                                 <input class="form-control py-4" id="inputPassword" name="inputPassword" type="password" placeholder="Enter password" />

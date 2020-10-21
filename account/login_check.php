@@ -24,17 +24,17 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 
 
 // Define variables and initialize with empty values
-$email = $password = "";
-$email_err = $password_err = "";
+$userkey = $password = "";
+$userkey_err = $password_err = "";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if username is empty
-    if (empty(trim($_POST["inputEmailAddress"]))) {
-        $email_err = "Please enter email.";
+    if (empty(trim($_POST["inputUserkey"]))) {
+        $userkey_err = "Please enter email or username.";
     } else {
-        $email = trim($_POST["inputEmailAddress"]);
+        $userkey = trim($_POST["inputUserkey"]);
     }
 
     // Check if password is empty
@@ -47,14 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if (empty($email_err) && empty($password_err)) {
         // Prepare a select statement
-        $sql = "SELECT id, username, password,email, licensie,bedrijfs_id FROM users WHERE email = ?";
+        $sql = "SELECT id, username, password,email, licensie,bedrijfs_id FROM users WHERE email = ? OR username = ?";
 
         if ($stmt = mysqli_prepare($con, $sql)) {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_email);
+            mysqli_stmt_bind_param($stmt, "ss", $param_email,$param_username);
 
             // Set parameters
-            $param_email = $email;
+            $param_email = $userkey;
+            $param_username = $userkey;
 
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
@@ -74,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["email"] = $email;
+                            $_SESSION["username"] = $username;
                             $_SESSION["licensie"] = $licensie;
                             $_SESSION["bedrijfs_id"] = $bedrijfs_id;
 

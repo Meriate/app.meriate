@@ -13,6 +13,18 @@ $show_columns = array('attributes', 'created_at');
 <html>
 
 <head>
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+
   <style>
     /* Style the input field */
     #surveyDropdownInput {
@@ -24,7 +36,7 @@ $show_columns = array('attributes', 'created_at');
     }
   </style>
   <script type="text/javascript">
-    $(document).ready(function() {
+    $(function() {
 
       var Survey = $("li .selectsurvey").first().text();
       var Surveyid = $("li .selectsurvey").first().attr('id').split("_")[1];
@@ -48,9 +60,12 @@ $show_columns = array('attributes', 'created_at');
         }
       });
 
+    });
+
+    
 
 
-      $("li .selectsurvey").click(function() {
+    $("li .selectsurvey").click(function() {
         var Survey = $(this).text();
         var Surveyid = $(this).attr('id').split("_")[1];
         $("#dropdown_survey").text(Survey);
@@ -66,7 +81,6 @@ $show_columns = array('attributes', 'created_at');
         });
 
       });
-    });
   </script>
 </head>
 

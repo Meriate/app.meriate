@@ -9,6 +9,7 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
 }
 
 $surveyid = $_POST['Surveyid'];
+
 $show_columns = array('attributes', 'created_at');
 
 $sql = 'SELECT id FROM surveys where bedrijfs_id = ' . $_SESSION['bedrijfs_id'];
