@@ -4,9 +4,8 @@ session_start();
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
     header('header:login.php');
-}elseif ( $_SESSION["licensie"] != 2) {
+} elseif ($_SESSION["licensie"] != 2) {
     header('header:permissiondenied.php');
-
 }
 require_once 'config/config.php';
 
@@ -48,11 +47,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-     if (empty($surveyname_err)){
-         echo 'oke';
-         $sql = "INSERT INTO surveys (bedrijfs_id, surveyname) VALUES (?,?)";
+    if (empty($surveyname_err)) {
+        echo 'oke';
+        $sql = "INSERT INTO surveys (bedrijfs_id, surveyname) VALUES (?,?)";
 
-         if ($stmt = mysqli_prepare($con, $sql)) {
+        if ($stmt = mysqli_prepare($con, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "is", $param_bedrijfs_id, $param_surveyname);
 
@@ -72,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Close statement
             mysqli_stmt_close($stmt);
         }
-     }
+    }
 }
 
 
@@ -80,38 +79,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <html lang="en">
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <title>Dashboard - Create Survey</title>
-  <?php include "assets/lib/libraries_head.php";?>
-  <link href="css/styles.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - Create Survey</title>
+    <?php include "assets/lib/libraries_head.php"; ?>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 </head>
-    <body>
-        <?php include('navigation.php'); ?>
-        <h1>New survey</h1>
-        <br><br>
-        <form action="" method="post">
-            <div class="form-group">
-                <label>Survey naam</label>
-                <input type="text" name="surveyname" class="form-control" value="<?php echo $surveyname; ?>">
-                <span class="help-block"><?php echo $surveyname_err; ?></span>
+
+<body class="sb-nav-fixed">
+    <?php include('navigation.php'); ?>
+    <div id="layoutSidenav_content">
+        <div class="container">
+            <h1 class="mt-4">New survey</h1>
+            <div class="row">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <div class="form-group col-md-12">
+                            <input type="text" name="surveyname" class="form-control" value="<?php echo $surveyname; ?>">
+                            <span class="help-block"><?php echo $surveyname_err; ?></span>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="form-group">
+                                <input type="hidden" name="bedrijfs_id" value="<?php echo $_SESSION['bedrijfs_id'] ?>">
+                                <input type="submit" class="btn btn-primary" value="submit">
+                            </div>
+                        </div>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="hidden" name="bedrijfs_id" value="<?php echo $_SESSION['bedrijfs_id'] ?>">
-                <input type="submit" class="btn btn-primary" value="submit">
-            </div>
+        </div>
+    </div>
+</body>
 
-        </form>
-    </body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-
-        <script src="js/scripts.js"></script>
+<script src="js/scripts.js"></script>
 
 
 </html>

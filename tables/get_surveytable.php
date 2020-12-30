@@ -23,12 +23,15 @@ $show_columns = array('attributes', 'created_at');
       border-radius: 0;
       background: #f1f1f1;
     }
+
+    
+    .dropdown-menu li.hovered { background-color: #A9A9A9; }
   </style>
   <script type="text/javascript">
-    $(function() {
+    $(document).ready(function() {
 
-      var Survey = $("li .selectsurvey").first().text();
-      var Surveyid = $("li .selectsurvey").first().attr('id').split("_")[1];
+      var Survey = $("li .selectsurvey").last().text();
+      var Surveyid = $("li .selectsurvey").last().attr('id').split("_")[1];
       $("#dropdown_survey").text(Survey);
 
 
@@ -51,40 +54,29 @@ $show_columns = array('attributes', 'created_at');
 
     });
 
-
-
-
-    $("li .selectsurvey").click(function() {
-        var Survey = $(this).text();
-        var Surveyid = $(this).attr('id').split("_")[1];
-        $("#dropdown_survey").text(Survey);
-
-
-        $.ajax({ /* THEN THE AJAX CALL */
-        type: "POST", /* TYPE OF METHOD TO USE TO PASS THE DATA */
-        url: "tables/surveytable.php", /* PAGE WHERE WE WILL PASS THE DATA */
-        data: {'Surveyname':Survey,'Surveyid':Surveyid}, /* THE DATA WE WILL BE PASSING */
-        success: function(result){ /* GET THE TO BE RETURNED DATA */
-            $("#tablecontainer").html(result); /* THE RETURNED DATA WILL BE SHOWN IN THIS DIV */
-          }
-        });
-
+    $(document).ready(function() {
+      $(".dropdown-menu li").mouseover(function() {
+        if (!$(this).hasClass('hovered')) {
+            $('.dropdown-menu li.hovered').removeClass('hovered');
+            $(this).addClass('hovered');
+        }
       });
+    });
   </script>
 </head>
 
 <body>
 
 
-  <div class="container">
-    <div class="dropdown">
+  <div class="container row">
+    <div class="dropdown col-md-3">
       <button class="btn btn-primary dropdown-toggle" id="dropdown_survey" type="button" data-toggle="dropdown">Select Survey
         <span class="caret"></span></button>
       <ul class="dropdown-menu">
         <input class="form-control" id="surveyDropdownInput" type="text" placeholder="Search..">
 
         <?php
-        $sql = 'SELECT id,surveyname FROM surveys where bedrijfs_id = ' . $_SESSION['bedrijfs_id']. ' ORDER BY created_at DESC';
+        $sql = 'SELECT id,surveyname FROM surveys where bedrijfs_id = ' . $_SESSION['bedrijfs_id'] . ' ORDER BY created_at DESC';
 
         $result = mysqli_query($con, $sql);
         $i = 1;
@@ -96,8 +88,11 @@ $show_columns = array('attributes', 'created_at');
 
       </ul>
     </div>
-    <div>
+    <div class="col-md-3">
       <a href="createsurvey.php" class="btn btn-primary">Create new survey</a>
+    </div>
+    <div class="col-md-3">
+      <a href="addattributes.php" class="btn btn-primary">Add new attributes</a>
     </div>
   </div>
   <br>
@@ -113,6 +108,34 @@ $show_columns = array('attributes', 'created_at');
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
       });
+    });
+
+
+
+
+    $(".dropdown-menu li").click(function() {
+      var Survey = $(this.firstChild).text();
+      var Surveyid = $(this.firstChild).attr('id').split("_")[1];
+      $("#dropdown_survey").text(Survey);
+
+
+      $.ajax({
+        /* THEN THE AJAX CALL */
+        type: "POST",
+        /* TYPE OF METHOD TO USE TO PASS THE DATA */
+        url: "tables/surveytable.php",
+        /* PAGE WHERE WE WILL PASS THE DATA */
+        data: {
+          'Surveyname': Survey,
+          'Surveyid': Surveyid
+        },
+        /* THE DATA WE WILL BE PASSING */
+        success: function(result) {
+          /* GET THE TO BE RETURNED DATA */
+          $("#tablecontainer").html(result); /* THE RETURNED DATA WILL BE SHOWN IN THIS DIV */
+        }
+      });
+
     });
   </script>
 

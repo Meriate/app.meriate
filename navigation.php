@@ -37,6 +37,12 @@
             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
             Dashboard
           </a>
+          <a class="nav-link" href="surveys.php">
+            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+            Surveys
+          </a>
+
+
           <div class="sb-sidenav-menu-heading">Extra's</div>
           <a class="nav-link" href="elements.php">
             <div class="sb-nav-link-icon"><i class="fas fa-toolbox"></i></div>
