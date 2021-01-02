@@ -18,25 +18,6 @@ $result_add = mysqli_query($con, $sql);
 
 ?>
 
-<html>
-
-<head>
-    <?php include "../assets/lib/libraries_head.php"; ?>
-    <link href="css/styles.css" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-
-</head>
-
-<body>
-
-    <?php
-    ?>
     <div>
         <div>
             <form action="" method="post">
@@ -75,11 +56,8 @@ $result_add = mysqli_query($con, $sql);
     </div>
 
 
-</body>
 <script>
     $(document).ready(function() {
         $('#vragentabel').DataTable();
     });
 </script>
-
-</html>

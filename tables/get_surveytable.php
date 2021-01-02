@@ -69,7 +69,7 @@ $show_columns = array('attributes', 'created_at');
 
 
   <div class="container row">
-    <div class="dropdown col-md-3">
+    <div class="dropdown col-md-9">
       <button class="btn btn-primary dropdown-toggle" id="dropdown_survey" type="button" data-toggle="dropdown">Select Survey
         <span class="caret"></span></button>
       <ul class="dropdown-menu">
@@ -91,13 +91,13 @@ $show_columns = array('attributes', 'created_at');
     <div class="col-md-3">
       <a href="createsurvey.php" class="btn btn-primary">Create new survey</a>
     </div>
-    <div class="col-md-3">
-      <a href="addattributes.php" class="btn btn-primary">Add new attributes</a>
-    </div>
   </div>
   <br>
 
   <div id="tablecontainer"></div>
+  <div class="col-md-3">
+      <a href="addattributes.php" class="btn btn-primary">Add new attributes</a>
+    </div>
 
   <script>
     $(document).ready(function() {

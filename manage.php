@@ -84,8 +84,7 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
         </div>
       </footer>
     </div>
-
-  </div>
+</div>
 
 
 
