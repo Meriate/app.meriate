@@ -24,7 +24,7 @@ $show_columns = array('attributes', 'created_at');
       background: #f1f1f1;
     }
 
-    
+
     .dropdown-menu li.hovered { background-color: #A9A9A9; }
   </style>
   <script type="text/javascript">
@@ -88,9 +88,7 @@ $show_columns = array('attributes', 'created_at');
 
       </ul>
     </div>
-    <div class="col-md-3">
-      <a href="createsurvey.php" class="btn btn-primary">Create new survey</a>
-    </div>
+    
   </div>
   <br>
 

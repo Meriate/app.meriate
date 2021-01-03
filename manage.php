@@ -30,59 +30,64 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
 
 <body class="sb-nav-fixed">
 
-
 <?php include('navigation.php');?>
-
-
-
 
     <div id="layoutSidenav_content">
 
       <main>
         <div class="container-fluid">
-          <h1 class="mt-4">Dashboard</h1>
-          <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Dashboard</li>
-          </ol>
 
           <div class="row">
+              <div class="col-xl-12">
+                  <div class="card mb-4 header-card">
+                    <div class="header-text left">
+                      <h1>Recent updates</h1>
 
-            <div class="col-md-6">
-              <div class="card">
-                <br>
-                <br>
-                <br>
-                <br>
+                      <div class="icon-box">
+                        <div><h6>8.2<h6></div>
+                        <h5>Total involvement score</h5>
+                        <p>+0.3 since last month</p>
+                      </div>
+                      <div class="icon-box">
+                        <div><h6>21</h6></div>
+                        <h5>Employees surveyed</h5>
+                        <p>out of 28 employees</p>
+                      </div>
+
+                    </div>
+                    <div class="header-img office">
+                      <img src="/assets/img/office-illustration.png" width="100%">
+                    </div>
+                  </div>
               </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="card">
-                <br>
-                <br>
-                <br>
-                <br>
-              </div>
-            </div>
-
           </div>
+
+          <div class="row">
+              <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area mr-1"></i>
+                        Area Chart Example
+                    </div>
+                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-bar mr-1"></i>
+                        Bar Chart Example
+                    </div>
+                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                </div>
+              </div>
+          </div>
+
         </div>
       </main>
 
-
-
-      <footer class="py-4 bg-light mt-auto">
-        <div class="container-fluid">
-          <div class="d-flex align-items-center justify-content-between small">
-            <div class="text-muted">Copyright &copy; Meriate</div>
-            <div>
-              <a href="#">Privacy Policy</a>
-              &middot;
-              <a href="#">Terms &amp; Conditions</a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
 </div>
 

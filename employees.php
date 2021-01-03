@@ -33,38 +33,22 @@ require_once('config/config.php')
                 <main>
                     <div class="container-fluid">
 
-                      <div class="row">
-                          <div class="col-xl-12">
-                              <div class="card mb-4 header-card">
-                                <div class="header-img setup">
-                                  <img src="/assets/img/setup-illustration.png" width="100%">
-                                </div>
-                                <div class="header-text right">
-                                  <h1>Ask your employees</h1>
-                                  <p>Once it is clear who the relevant experts are in your organisation, we will collaborate with them to develop questions so that the feedback and input from their peers will return the most efficient answers.<p>
-                                  <br>
-                                  <a href="createsurvey.php" class="btn btn-lg btn-secondary">Create a new survey</a>
-                                </div>
-                              </div>
-                          </div>
-                      </div>
-
+                      <br><br>
                       <div class="row">
                           <div class="col-xl-12">
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-table mr-1"></i>
-                                    Surveys
+                                    Employees
                                 </div>
                                 <div class="card-body">
-                                    <div class="table-responsive" style="overflow: visible;">
-                                      <?php include('tables/get_surveytable.php');?>
+                                    <div class="table-responsive">
+                                      <?php include('tables/personeelstabel.php');?>
                                     </div>
                                 </div>
                             </div>
                           </div>
                       </div>
-
 
                     </div>
                 </main>

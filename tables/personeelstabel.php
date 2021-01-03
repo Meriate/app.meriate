@@ -56,8 +56,8 @@ while ($fetch = mysqli_fetch_assoc($result)) {
 </style>
 
 
-        <div class="container-fluid">
-            <div class="col-md-12">
+
+
                 <table class="personeelstable stripe row-border order-column" id="perstabel" style="width:100%">
                     <!-- Tabel headers -->
                     <thead>
@@ -105,15 +105,15 @@ while ($fetch = mysqli_fetch_assoc($result)) {
 
                     </tbody>
                 </table>
-            </div>
-        </div>
+
+
 
 </body>
 
 <script>
     $(document).ready(function() {
         $('#perstabel').DataTable({
-            scrollY: "300px",
+            scrollY: "600px",
             scrollX: true,
             scrollCollapse: true,
             paging: false,

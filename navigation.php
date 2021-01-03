@@ -34,28 +34,30 @@
         <div class="nav">
           <div class="sb-sidenav-menu-heading">Core</div>
           <a class="nav-link" href="manage.php">
-            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
             Dashboard
           </a>
           <a class="nav-link" href="surveys.php">
-            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+            <div class="sb-nav-link-icon"><i class="fas fa-edit"></i></div>
             Surveys
+          </a>
+          <a class="nav-link" href="employees.php">
+            <div class="sb-nav-link-icon"><i class="fas fa-user-friends"></i></div>
+            Employees
           </a>
 
 
           <div class="sb-sidenav-menu-heading">Extra's</div>
-          <a class="nav-link" href="elements.php">
+          <a class="nav-link" href="https://meriate.com" target="_blank">
+            <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
+            Documentation
+          </a>
+          <a class="nav-link" href="components.php">
             <div class="sb-nav-link-icon"><i class="fas fa-toolbox"></i></div>
-            Elements
+            Components
           </a>
-          <a class="nav-link" href="charts.php">
-            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-            Charts
-          </a>
-          <a class="nav-link" href="tables.php">
-            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-            Tables
-          </a>
+
+
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
             Pages
@@ -91,8 +93,7 @@
         </div>
       </div>
       <div class="sb-sidenav-footer">
-        <div class="small">Logged in as:</div>
-        Meriate Test
+        <div class="small text-muted">Copyright © Meriate</div>
       </div>
     </nav>
   </div>
