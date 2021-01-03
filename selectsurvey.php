@@ -40,81 +40,115 @@ $result = mysqli_query($con, $sql);
 
 </head>
 
-<body class="sb-nav-fixed">
-  <?php include('navigation.php'); ?>
+<body class="sb-nav-fixed sb-nav-fixed sb-sidenav-toggled">
 
-  <div class="layoutSidenav_content">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://meriate.com"><img src="../assets/img/meriate-logo-white.svg" alt="Meriate Logo"></a>
+        <div class="input-group">
+        </div>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="account/logout.php">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+
+  <div id="layoutSidenav_content">
 
     <main>
       <div class="container-fluid">
-        <div class="col-md-12">
-          <div class="card-body">
-            <form action="/survey.php" method="get">
-              <table class="perstabel" id="vragentabel">
-                <!-- Tabel headers -->
-                <tr class="tr_header">
-                  <th></th>
-                  <th>#</th>
-                  <?php
-                  foreach ($show_columns as $columnname) {
-                    echo '<th>' . $columnname . '</th>';
-                  }
-                  ?>
 
-                <tr>
-
-                  <?php
-                  $i = 1;
-                  while ($fetch = mysqli_fetch_assoc($result)) {
-
-                    echo '<tr>';
-
-                    $sql = "SELECT * FROM vragenlijst where survey_id = " . $fetch['id'] . ""
-                      . " AND Beoordelaar_id = " . $_SESSION['id'] . ""
-                      . " AND bedrijfs_id = " . $_SESSION['bedrijfs_id'];
-
-                    if (mysqli_num_rows(mysqli_query($con, $sql)) == 0) {
-                      echo '<td> <input type="radio" id="survey-' . $fetch['id'] . '" name="selectsurvey" value=' . $fetch['id'] . '> </td>';
-                    } else {
-                      echo '<td> <i class="fa fa-check"></i></td>';
-                    }
-                    echo '<td>' . $i++ . '</td>';
-
-                    foreach ($fetch as $value) {
-                      if ($value != $fetch['id']) {
-                        echo '<td>' . $value . '</td>';
-                      }
-                    }
-                    echo '</tr>';
-                  }
-                  ?>
+        <br><br><br><br>
+        <div class="row">
+            <div class="col-lg-12">
+              <div class="card mb-4">
+                  <div class="card-header">
+                      <i class="fas fa-edit mr-1"></i>
+                      Employee surveys
+                  </div>
+                  <div class="card-body">
 
 
-              </table>
+                    <form action="/survey.php" method="get">
+                      <table class="perstabel" id="vragentabel">
+                        <!-- Tabel headers -->
+                        <tr class="tr_header">
+                          <th></th>
+                          <th>#</th>
+                          <?php
+                          foreach ($show_columns as $columnname) {
+                            echo '<th>' . $columnname . '</th>';
+                          }
+                          ?>
 
-              <input type="submit" value="Go to survey">
-            </form>
-          </div>
+                        <tr>
+
+                          <?php
+                          $i = 1;
+                          while ($fetch = mysqli_fetch_assoc($result)) {
+
+                            echo '<tr>';
+
+                            $sql = "SELECT * FROM vragenlijst where survey_id = " . $fetch['id'] . ""
+                              . " AND Beoordelaar_id = " . $_SESSION['id'] . ""
+                              . " AND bedrijfs_id = " . $_SESSION['bedrijfs_id'];
+
+                            if (mysqli_num_rows(mysqli_query($con, $sql)) == 0) {
+                              echo '<td> <input type="radio" id="survey-' . $fetch['id'] . '" name="selectsurvey" value=' . $fetch['id'] . '> </td>';
+                            } else {
+                              echo '<td> <i class="fa fa-check"></i></td>';
+                            }
+                            echo '<td>' . $i++ . '</td>';
+
+                            foreach ($fetch as $value) {
+                              if ($value != $fetch['id']) {
+                                echo '<td>' . $value . '</td>';
+                              }
+                            }
+                            echo '</tr>';
+                          }
+                          ?>
+
+
+                      </table>
+
+                      <input type="submit" value="Go to survey">
+                    </form>
+
+
+
+
+                  </div>
+              </div>
+            </div>
+
         </div>
+
       </div>
     </main>
 
-
-
-
-    <footer class="py-4 bg-light mt-auto">
-      <div class="container-fluid">
-        <div class="d-flex align-items-center justify-content-between small">
-          <div class="text-muted">Copyright &copy; Meriate</div>
-          <div>
-            <a href="#">Privacy Policy</a>
-            &middot;
-            <a href="#">Terms &amp; Conditions</a>
-          </div>
+<br>
+    <footer class="py-4 bg-light mt-auto" style="position: absolute; width: 100%; bottom: 0;">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Meriate</div>
+                <div>
+                    <a href="https://meriate.com/privacy-policy/" target="_blank">Privacy Policy</a>
+                    &middot;
+                    <a href="https://meriate.com/terms-conditions/" target="_blank">Terms &amp; Conditions</a>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
+
   </div>
+
+
 </div>
 
 

@@ -33,7 +33,7 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
 <style>
-    
+
     #regForm {
         background-color: #ffffff;
         margin: 100px auto;
@@ -47,7 +47,7 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
         text-align: center;
     }
 
- 
+
     /* Make circles that indicate the steps of the form: */
     .step {
         height: 15px;
@@ -101,11 +101,10 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
     }
 </style>
 
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed sb-nav-fixed sb-sidenav-toggled">
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="manage.php"><img src="../assets/img/meriate-logo-white.svg" alt="Meriate Logo"></a>
-        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <a class="navbar-brand" href="https://meriate.com"><img src="../assets/img/meriate-logo-white.svg" alt="Meriate Logo"></a>
         <div class="input-group">
         </div>
         <!-- Navbar-->
@@ -113,7 +112,6 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-
                     <a class="dropdown-item" href="account/logout.php">Logout</a>
                 </div>
             </li>
@@ -123,17 +121,7 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
 
 
     <div id="layoutSidenav">
-        <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
 
-                </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Meriate Test
-                </div>
-            </nav>
-        </div>
 
         <div id="layoutSidenav_content">
             <main>
@@ -208,14 +196,15 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
                     </form>
                 </div>
             </main>
+
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Meriate</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
+                            <a href="https://meriate.com/privacy-policy/" target="_blank">Privacy Policy</a>
                             &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+                            <a href="https://meriate.com/terms-conditions/" target="_blank">Terms &amp; Conditions</a>
                         </div>
                     </div>
                 </div>
