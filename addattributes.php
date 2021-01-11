@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if username is empty
     if (empty(trim($_POST["attrname"]))) {
         $attr_err = "Please enter a attribute name";
-    } 
+    }
     elseif($_POST["selected_survey"] == 0){
         $selected_id_err = "Please select a survey";
     }else {
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ((empty($attr_err)) & (empty($selected_id_err))) {
-        
+
         $sql = "INSERT INTO vragen (bedrijfs_id, attributes, surveyid) VALUES (?,?,?)";
         if ($stmt = mysqli_prepare($con, $sql)) {
             // Bind variables to the prepared statement as parameters
@@ -68,9 +68,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_surveyid = $_POST['selected_survey'];
 
             // Attempt to execute the prepared statement
-  
+
             if (mysqli_stmt_execute($stmt)) {
-                
+
                 // Redirect to login page
                 if ($_POST["button_choice"] == 1){
                     header("location: Manage.php");
@@ -93,7 +93,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<html lang="en">
 <html lang="en">
 
 <head>
@@ -125,24 +124,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         });
     </script>
 
-
-
 </head>
 
 <body class="sb-nav-fixed">
+  <?php include('navigation.php'); ?>
+  <div id="layoutSidenav_content">
 
-    <?php include('navigation.php'); ?>
-    <div id="layoutSidenav_content">
-        <div class="container">
-            <h1 class="mt-4">New attribute</h1>
-            <span><?php echo $attribute_saved ?></span>
-            <div class="row">
+    <main>
+      <div class="container-fluid">
+        <br><br>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card mb-4" style="max-width: 360px;">
+              <div class="card-body">
+                <h2>New attribute</h2>
+                <span><?php echo $attribute_saved ?></span>
+
+
                 <form action="" method="post">
 
 
-                    <div class="dropdown col-md-12">
-                        <button class="btn btn-primary dropdown-toggle" id="dropdown_survey" type="button" data-toggle="dropdown">Select Survey</button>
-                            
+
+                        <button class="btn btn-outline-primary dropdown-toggle" id="dropdown_survey" type="button" data-toggle="dropdown">Select Survey</button>
+
                         <ul class="dropdown-menu">
                             <input class="form-control" id="surveyDropdownInput" type="text" placeholder="Search..">
 
@@ -158,31 +163,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             ?>
 
                         </ul>
-                        
-                    </div>
+
+
                     <span class="caret help-block"><?php echo $selected_id_err ?></span>
-                    <br>                             
-                    <div class="form-group col-md-12">
+                    <br><br>
+                    <div class="form-group">
                         <label>Attribute name</label>
                         <input type="text" name="attrname" class="form-control" value="<?php echo $attr; ?>">
                         <span class="help-block"><?php echo $attr_err; ?></span>
                     </div>
-                    <div class="form-group col-md-12">
+                    <div class="form-group">
                         <input type="hidden" name="bedrijfs_id" value="<?php echo $_SESSION['bedrijfs_id'] ?>">
                         <input type="hidden" id="selected_survey" name="selected_survey" value="">
                         <input type="hidden" id="button_choice" name="button_choice" value = "0">
-                        <input type="submit" class="btn btn-primary" id="btn_primary" value="Save">
-                        <input type="submit" class="btn btn-success" value="Save & add new attribute">
+                        <input type="submit" class="btn btn-outline-primary" id="btn_primary" value="Save">
+                        <input type="submit" class="btn btn-primary" value="Save & Add">
                     </div>
 
                 </form>
+
+
+              </div>
             </div>
+          </div>
         </div>
 
+      </div>
+    </main>
 
-
-
-    </div>
+  </div>
 </body>
 
 

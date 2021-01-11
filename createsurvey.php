@@ -78,7 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <html lang="en">
-<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -93,32 +92,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body class="sb-nav-fixed">
-    <?php include('navigation.php'); ?>
-    <div id="layoutSidenav_content">
-        <div class="container">
-            <h1 class="mt-4">New survey</h1>
-            <div class="row">
+  <?php include('navigation.php'); ?>
+  <div id="layoutSidenav_content">
+
+    <main>
+      <div class="container-fluid">
+        <br><br>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card mb-4" style="max-width: 360px;">
+              <div class="card-body">
+                <h2>New survey</h2><br>
                 <form action="" method="post">
-                    <div class="form-group">
-                        <div class="form-group col-md-12">
-                            <input type="text" name="surveyname" class="form-control" value="<?php echo $surveyname; ?>">
-                            <span class="help-block"><?php echo $surveyname_err; ?></span>
-                        </div>
-                        <div class="form-group col-md-12">
-                            <div class="form-group">
-                                <input type="hidden" name="bedrijfs_id" value="<?php echo $_SESSION['bedrijfs_id'] ?>">
-                                <input type="submit" class="btn btn-primary" value="submit">
-                            </div>
-                        </div>
+                  <div class="form-group">
+                    <label for="email">Survey name:</label>
+                    <input type="text" name="surveyname" class="form-control" value="<?php echo $surveyname; ?>">
+                    <span class="help-block"><?php echo $surveyname_err; ?></span>
+                  </div>
+                  <div class="form-group">
+                    <input type="hidden" name="bedrijfs_id" value="<?php echo $_SESSION['bedrijfs_id'] ?>">
+                    <input type="submit" class="btn btn-primary" value="Create survey">
+                  </div>
                 </form>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+
+      </div>
+    </main>
+
+  </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-
 <script src="js/scripts.js"></script>
-
 
 </html>
