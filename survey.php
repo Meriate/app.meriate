@@ -4,24 +4,26 @@ session_start();
 require_once 'config/config.php';
 
 
-$Aantal_beoordelen = 5;
 
-$surveyid = $_GET['selectsurvey'];
+$Cijfer_to_en_met = 7;
 
-$result_survey = mysqli_query($con, 'SELECT attributes,id FROM vragen WHERE surveyid = ' . $surveyid . ' AND bedrijfs_id = ' . $_SESSION['bedrijfs_id']);
-$result_employee = mysqli_query($con, 'SELECT id,firstname, lastname FROM users WHERE id != ' . $_SESSION['id'] . ' AND licensie = 1 AND bedrijfs_id = ' . $_SESSION['bedrijfs_id'] . ' ORDER BY Aantal_keer_beoordeelt ASC limit ' . $Aantal_beoordelen);
+$surveyid = $_POST['selectsurvey'];
+
+$result_survey = mysqli_query($con, 'SELECT attributes, attr_category,id FROM vragen WHERE surveyid = ' . $surveyid . ' AND bedrijfs_id = ' . $_SESSION['bedrijfs_id']);
+$result_employee = mysqli_query($con, 'SELECT id,firstname, lastname FROM users WHERE id != ' . $_SESSION['id'] . ' AND licensie = 1 AND bedrijfs_id = ' . $_SESSION['bedrijfs_id'] . ' ORDER BY Aantal_keer_beoordeelt ASC limit 1');
 
 $employee = [];
 while ($row = mysqli_fetch_array($result_employee)) {
     $employees[] = $row;
 }
-
+$employees = $employees[0];
 $surveys = [];
 while ($row = mysqli_fetch_array($result_survey)) {
     $surveys[] = $row;
 }
 
 $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys WHERE id = ' . $surveyid))['surveyname'];
+$aantal_vragen = count($surveys);
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +35,6 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
 <style>
-
     #regForm {
         background-color: #ffffff;
         margin: 100px auto;
@@ -104,7 +105,7 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
 <body class="sb-nav-fixed sb-nav-fixed sb-sidenav-toggled">
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand" href="https://meriate.com"><img src="../assets/img/meriate-logo-white.svg" alt="Meriate Logo"></a>
+        <a class="navbar-brand" href="selectsurvey.php"><img src="../assets/img/meriate-logo-white.svg" alt="Meriate Logo"></a>
         <div class="input-group">
         </div>
         <!-- Navbar-->
@@ -127,51 +128,45 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
             <main>
                 <div class="container-fluid">
                     <form id="regForm" action="/Einde.php" method="POST">
-                        <h1>Survey: <?php echo $vraag ?></h1>
+                        <h1><?php echo $vraag ?></h1>
+                        <h3 id="pag_ratio"><?php echo "1/{$aantal_vragen}"; ?></h3>
+
+                        <div class='Beoordeling1-name'>
+                            <p><?php echo $employees['firstname'] . ' ' . $employees['lastname'] ?></p>
+                        </div>
                         <?php
                         foreach ($surveys as $fetch_question) {
-
-                            echo '<div class="tab">' . $fetch_question['attributes'];
-
-                            foreach ($employees as $fetch) {
+                            $visible = ($surveys[0] == $fetch_question ? '' : 'display: none');
+                            echo "<div class=\"tab\" style=\"{$visible}\">
+                                <div>{$fetch_question['attr_category']}</div>
+                                    <div>{$fetch_question['attributes']}</div>";
 
                         ?>
 
-                                <div class='Beoordeling1'>
-                                    <div class='Beoordeling1-1'>
-                                        <p><?php echo $fetch['firstname'] . ' ' . $fetch['lastname'] ?></p>
-                                    </div>
-                                    <div class='Beoordeling1-1'>
-                                        <p>Slecht</p>
-                                    </div>
-                                    <div class='Beoordeling1-1'>
-                                        <label for="Choice1">1<br />
-                                            <input type="radio" id="Choice1_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>" name="Choice_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>" value="1" oninput="this.className = ''" />
-                                        </label>
+                            <div class='Beoordeling1'>
 
-                                        <label for="Choice2">2<br />
-                                            <input type="radio" id="Choice2_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>"" name=" Choice_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>" value="2" oninput="this.className = ''" />
-                                        </label>
-
-                                        <label for="Choice3">3<br />
-                                            <input type="radio" id="Choice3_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>"" name=" Choice_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>" value="3" oninput="this.className = ''" />
-                                        </label>
-
-                                        <label for="Choice4">4<br />
-                                            <input type="radio" id="Choice4_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>"" name=" Choice_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>" value="4" oninput="this.className = ''" />
-                                        </label>
-
-                                        <label for="Choice5">5<br />
-                                            <input type="radio" id="Choice5_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>"" name=" Choice_<?php echo $fetch_question['id'] . '_' . $fetch['id'] ?>" value="5" oninput="this.className = ''" />
-                                        </label>
-                                    </div>
-                                    <div class='Beoordeling1-1'>
-                                        <p>Goed</p>
-                                    </div>
+                                <div class='Beoordeling1-slecht'>
+                                    <p>Slecht</p>
                                 </div>
+                                <div class='Beoordeling1-1'>
+                                    <?php
+                                    for ($i = 1; $i <= $Cijfer_to_en_met; $i++) {
+
+                                        echo " 
+                                            <label for=\"Choice{$i}\">{$i}<br />
+                                                <input type=\"radio\" id=\"Choice{$i}_{$fetch_question['id']}_{$employees['id']}\" name=\"Choice_{$fetch_question['id']}_{$employees['id']}\" value=\"{$i}\" oninput=\"this.className = ''\" />
+                                            </label>";
+                                    }
+
+                                    ?>
+                                </div>
+                                <div class='Beoordeling1-goed'>
+                                    <p>Goed</p>
+                                </div>
+                            </div>
 
                         <?php
-                            }
+
                             echo '</div>';
                         }
                         ?>
@@ -190,7 +185,7 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
                             } ?>
                         </div>
                         <div>
-                            <input type="hidden" id="survey_id" name="survey_id" value="<?php echo $_GET['selectsurvey'] ?>">
+                            <input type="hidden" id="survey_id" name="survey_id" value="<?php echo $_POST['selectsurvey'] ?>">
                         </div>
 
                     </form>
@@ -214,6 +209,7 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
 
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
+
         showTab(currentTab); // Display the current tab
 
         function showTab(n) {
@@ -241,6 +237,14 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
             // Exit the function if any field in the current tab is invalid:
             if (n == 1 && !validateForm())
                 return false;
+
+            var checked = x[currentTab].querySelector('input[type=radio]:checked');
+
+            if (checked == null && n > 0) {
+                alert('Nothing is checked')
+                return false;
+            }
+
             // Hide the current tab:
             x[currentTab].style.display = "none";
             // Increase or decrease the current tab by 1:
@@ -251,6 +255,8 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
                 document.getElementById("regForm").submit();
                 return false;
             }
+            // Update pagination ratio
+            update_pag_ratio(n)
             // Otherwise, display the correct tab:
             showTab(currentTab);
         }
@@ -285,6 +291,14 @@ $vraag = mysqli_fetch_assoc(mysqli_query($con, 'SELECT surveyname FROM surveys W
             }
             //... and adds the "active" class on the current step:
             x[n].className += " active";
+        }
+
+        function update_pag_ratio(n) {
+            var x = document.getElementById("pag_ratio");
+            var tabs = document.getElementsByClassName("tab");
+            console.log(x);
+
+            x.innerHTML = +x.innerHTML[0] + +n + '/' + tabs.length;
         }
     </script>
 

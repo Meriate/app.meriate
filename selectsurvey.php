@@ -11,9 +11,11 @@ if (!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === false) {
 require_once 'config/config.php';
 
 
-$show_columns = array('surveyname', 'created_at');
+$show_columns = array('surveyname');
 
 $sql = 'SELECT id,' . implode(', ', $show_columns) . ' FROM surveys where bedrijfs_id = ' . $_SESSION['bedrijfs_id'];
+
+$sql = 'SELECT s.id,' . implode(', ', $show_columns) . ' FROM `surveys` s, vragen v  where s.id = v.surveyid AND s.bedrijfs_id = ' . $_SESSION['bedrijfs_id'] . ' group by v.surveyid';
 
 $result = mysqli_query($con, $sql);
 
@@ -37,6 +39,13 @@ $result = mysqli_query($con, $sql);
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
 
+<script>
+$(document).ready(function(){
+  $("input:radio").click(function(){
+    $("#Go_to_Survey").attr("disabled",false)
+  });
+});
+</script>
 
 </head>
 
@@ -74,7 +83,7 @@ $result = mysqli_query($con, $sql);
                   <div class="card-body">
 
 
-                    <form action="/survey.php" method="get">
+                    <form action="/survey.php" method="post">
                       <table class="perstabel" id="vragentabel">
                         <!-- Tabel headers -->
                         <tr class="tr_header">
@@ -117,7 +126,7 @@ $result = mysqli_query($con, $sql);
 
                       </table>
 
-                      <input type="submit" value="Go to survey">
+                      <input type="submit" disabled id="Go_to_Survey" value="Go to survey">
                     </form>
 
 
